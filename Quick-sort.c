@@ -1,6 +1,3 @@
-Certainly! Here's a simple implementation of the Quick Sort algorithm in C:
-
-```c
 #include <stdio.h>
 
 void swap(int* a, int* b) {
@@ -44,14 +41,23 @@ void printArray(int arr[], int size) {
 int main() {
     int n;
 
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
+    printf("Welcome to the Quick Sort Program\n");
+    printf("Enter the number of elements in the array: ");
+
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid input for the number of elements. Please enter a positive integer.\n");
+        return 1;  // Exit with an error code
+    }
 
     int arr[n];
 
-    printf("Enter %d elements:\n", n);
+    printf("Enter %d elements, separated by spaces:\n", n);
+
     for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+        if (scanf("%d", &arr[i]) != 1) {
+            printf("Invalid input for element %d. Please enter integers only.\n", i + 1);
+            return 1;  // Exit with an error code
+        }
     }
 
     printf("\nOriginal Array: ");
@@ -66,6 +72,3 @@ int main() {
 
     return 0;
 }
-```
-
-This program uses the Quick Sort algorithm to sort an array of integers. It takes the number of elements and the array as input from the user, prints the original array, performs the quick sort, and then prints the sorted array.
