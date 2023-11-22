@@ -1,10 +1,21 @@
 #include <stdio.h>
 
+void printMultiplicationTable(int number, int limit) {
+    int i;
+
+    // Display multiplication table for the given number up to the specified limit
+    printf("Multiplication table for %d up to %d:\n", number, limit);
+    for (i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", number, i, number * i);
+    }
+    printf("\n");  // Add a newline between tables
+}
+
 int main() {
-    int limit, i, j;
+    int limit, i;
 
     // Get the limit from the user
-    printf("Enter a limit (1 to 100): ");
+    printf("Enter a limit (1 to 100) for multiplication tables: ");
     scanf("%d", &limit);
 
     // Validate the input
@@ -15,11 +26,7 @@ int main() {
 
     // Display multiplication tables from 1 to the entered limit
     for (i = 1; i <= limit; i++) {
-        printf("Multiplication table for %d:\n", i);
-        for (j = 1; j <= 10; j++) {
-            printf("%d x %d = %d\n", i, j, i * j);
-        }
-        printf("\n");  // Add a newline between tables
+        printMultiplicationTable(i, limit);
     }
 
     return 0;
